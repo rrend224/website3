@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シンプルなビジネスサイト</title>
+    <title>ビジネスサイトテンプレート</title>
     <style>
-        /* リセットCSS */
+        /* リセットCSSと基本スタイル */
         * {
             margin: 0;
             padding: 0;
@@ -18,22 +18,64 @@
             color: #333;
         }
         
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
         /* ヘッダー */
         header {
             background-color: #fff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
-            z-index: 100;
+            z-index: 1000;
+            transition: all 0.3s;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 20px 0;
         }
         
         .logo {
@@ -73,9 +115,6 @@
         }
         
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -98,21 +137,6 @@
             color: #7f8c8d;
         }
         
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        
         .hero-image {
             flex: 1;
         }
@@ -123,30 +147,69 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
-        /* サービスセクション */
-        .services {
-            padding: 100px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Aboutセクション */
+        .about {
+            background-color: #f8f9fa;
         }
         
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
         }
         
-        .section-title h2 {
-            font-size: 36px;
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
             color: #2c3e50;
-            margin-bottom: 15px;
         }
         
-        .section-title p {
+        .about-text p {
+            margin-bottom: 20px;
             color: #7f8c8d;
-            max-width: 700px;
-            margin: 0 auto;
         }
         
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+        
+        /* サービスセクション */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -158,7 +221,8 @@
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            text-align: center;
         }
         
         .service-card:hover {
@@ -167,7 +231,7 @@
         }
         
         .service-icon {
-            font-size: 40px;
+            font-size: 50px;
             color: #3498db;
             margin-bottom: 20px;
         }
@@ -178,19 +242,393 @@
             color: #2c3e50;
         }
         
+        /* チームセクション */
+        .team {
+            background-color: #f8f9fa;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .member-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .member-info p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #3498db;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #2980b9;
+        }
+        
+        /* ポートフォリオセクション */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            margin: 5px;
+            cursor: pointer;
+            color: #7f8c8d;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            color: #3498db;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(52, 152, 219, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        /* テストモニアルセクション */
+        .testimonials {
+            background-color: #f8f9fa;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial-item.active {
+            display: block;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .client-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-name h4 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .client-name p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #bdc3c7;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: #3498db;
+        }
+        
+        /* 価格表セクション */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid #3498db;
+            position: relative;
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+        
+        .pricing-card h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 40px;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            color: #7f8c8d;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        /* コンタクトセクション */
+        .contact {
+            background-color: #f8f9fa;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 20px;
+            color: #3498db;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .info-content h4 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .info-content p {
+            color: #7f8c8d;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
         /* フッター */
         footer {
             background-color: #2c3e50;
             color: #fff;
-            padding: 60px 5% 30px;
+            padding: 60px 0 30px;
         }
         
         .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-col h3 {
@@ -232,6 +670,28 @@
             color: #3498db;
         }
         
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: #3498db;
+            transform: translateY(-3px);
+        }
+        
         .copyright {
             text-align: center;
             padding-top: 30px;
@@ -241,7 +701,11 @@
         }
         
         /* レスポンシブデザイン */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
             .hero-content {
                 flex-direction: column;
                 text-align: center;
@@ -256,34 +720,48 @@
             .hero-text h1 {
                 font-size: 36px;
             }
-            
+        }
+        
+        @media (max-width: 768px) {
             nav ul {
                 display: none;
+            }
+            
+            .menu-toggle {
+                display: block !important;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="container header-container">
             <a href="#" class="logo">Company</a>
             <nav>
                 <ul>
-                    <li><a href="#">ホーム</a></li>
-                    <li><a href="#">サービス</a></li>
-                    <li><a href="#">会社概要</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#about">会社概要</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="#team">チーム</a></li>
+                    <li><a href="#portfolio">ポートフォリオ</a></li>
+                    <li><a href="#pricing">価格表</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
                 </ul>
             </nav>
+            <div class="menu-toggle">☰</div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
+    <section id="home" class="hero">
+        <div class="container hero-content">
             <div class="hero-text">
                 <h1>ビジネスを次のレベルへ</h1>
                 <p>私たちはあなたのビジネスの成長をサポートします。最新のテクノロジーと戦略で、市場での競争力を高めましょう。</p>
-                <a href="#" class="btn">詳細を見る</a>
+                <a href="#contact" class="btn">お問い合わせ</a>
             </div>
             <div class="hero-image">
                 <img src="https://via.placeholder.com/600x400" alt="ビジネスイメージ">
@@ -291,101 +769,329 @@
         </div>
     </section>
 
-    <section class="services">
-        <div class="section-title">
-            <h2>私たちのサービス</h2>
-            <p>お客様のビジネスニーズに合わせた様々なサービスを提供しています</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>ビジネスコンサルティング</h3>
-                <p>経験豊富なコンサルタントが、ビジネスの課題解決と成長戦略をサポートします。</p>
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>会社概要</h2>
+                <p>私たちのストーリーと、お客様のために何ができるかをご紹介します</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">💻</div>
-                <h3>Web開発</h3>
-                <p>最新の技術を使ったレスポンシブで高性能なウェブサイトを開発します。</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📈</div>
-                <h3>デジタルマーケティング</h3>
-                <p>効果的なオンラインマーケティング戦略で、顧客獲得をサポートします。</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/600x400" alt="会社概要">
+                </div>
+                <div class="about-text">
+                    <h3>信頼と革新の10年</h3>
+                    <p>私たちは2010年に設立され、ビジネスコンサルティングとデジタルソリューションを提供してきました。お客様の成功が私たちの成功です。</p>
+                    <p>最新の技術と経験豊富なチームで、お客様のビジネス課題を解決し、成長をサポートします。</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>ウェブ開発</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>マーケティング</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>ビジネス戦略</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Company</h3>
-                <p>私たちはビジネスの成長を支援するプロフェッショナルチームです。お客様の成功が私たちの成功です。</p>
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>私たちのサービス</h2>
+                <p>お客様のビジネスニーズに合わせた様々なサービスを提供しています</p>
             </div>
-            <div class="footer-col">
-                <h3>リンク</h3>
-                <ul class="footer-links">
-                    <li><a href="#">ホーム</a></li>
-                    <li><a href="#">サービス</a></li>
-                    <li><a href="#">会社概要</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>お問い合わせ</h3>
-                <p>〒100-0000 東京都千代田区</p>
-                <p>電話: 03-1234-5678</p>
-                <p>Email: info@example.com</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>ビジネスコンサルティング</h3>
+                    <p>経験豊富なコンサルタントが、ビジネスの課題解決と成長戦略をサポートします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Web開発</h3>
+                    <p>最新の技術を使ったレスポンシブで高性能なウェブサイトを開発します。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>デジタルマーケティング</h3>
+                    <p>効果的なオンラインマーケティング戦略で、顧客獲得をサポートします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>モバイルアプリ開発</h3>
+                    <p>iOSとAndroidのネイティブアプリを開発し、モバイルユーザーにリーチします。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>SEO最適化</h3>
+                    <p>検索エンジンでの可視性を高め、オーガニックトラフィックを増加させます。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📢</div>
+                    <h3>ソーシャルメディア戦略</h3>
+                    <p>ソーシャルメディアを活用したブランド構築と顧客エンゲージメントを強化します。</p>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2023 Company. All Rights Reserved.</p>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>私たちのチーム</h2>
+                <p>経験豊富で情熱的なプロフェッショナルがお客様をサポートします</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="チームメンバー">
+                    </div>
+                    <div class="member-info">
+                        <h3>山田 太郎</h3>
+                        <p>CEO / 創業者</p>
+                        <div class="social-links">
+                            <a href="#">📱</a>
+                            <a href="#">💻</a>
+                            <a href="#">📧</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="チームメンバー">
+                    </div>
+                    <div class="member-info">
+                        <h3>佐藤 花子</h3>
+                        <p>マーケティングディレクター</p>
+                        <div class="social-links">
+                            <a href="#">📱</a>
+                            <a href="#">💻</a>
+                            <a href="#">📧</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="チームメンバー">
+                    </div>
+                    <div class="member-info">
+                        <h3>鈴木 健太</h3>
+                        <p>リードデベロッパー</p>
+                        <div class="social-links">
+                            <a href="#">📱</a>
+                            <a href="#">💻</a>
+                            <a href="#">📧</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="チームメンバー">
+                    </div>
+                    <div class="member-info">
+                        <h3>田中 美咲</h3>
+                        <p>デザインディレクター</p>
+                        <div class="social-links">
+                            <a href="#">📱</a>
+                            <a href="#">💻</a>
+                            <a href="#">📧</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // スクロール時のヘッダー効果
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = '#fff';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>ポートフォリオ</h2>
+                <p>私たちのこれまでのプロジェクトをご覧ください</p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">すべて</button>
+                <button class="filter-btn" data-filter="web">ウェブサイト</button>
+                <button class="filter-btn" data-filter="app">アプリ</button>
+                <button class="filter-btn" data-filter="branding">ブランディング</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <img src="https://via.placeholder.com/600x400" alt="プロジェクト1">
+                    <div class="portfolio-overlay">
+                        <h3>eコマースサイト</h3>
+                        <p>オンラインショップのデザインと開発</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="app">
+                    <img src="https://via.placeholder.com/600x400" alt="プロジェクト2">
+                    <div class="portfolio-overlay">
+                        <h3>フィットネスアプリ</h3>
+                        <p>iOSとAndroid向けフィットネストラッカー</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="branding">
+                    <img src="https://via.placeholder.com/600x400" alt="プロジェクト3">
+                    <div class="portfolio-overlay">
+                        <h3>カフェブランディング</h3>
+                        <p>ロゴデザインとブランド戦略</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web">
+                    <img src="https://via.placeholder.com/600x400" alt="プロジェクト4">
+                    <div class="portfolio-overlay">
+                        <h3>コーポレートサイト</h3>
+                        <p>企業向けウェブサイトのリニューアル</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="app">
+                    <img src="https://via.placeholder.com/600x400" alt="プロジェクト5">
+                    <div class="portfolio-overlay">
+                        <h3>金融アプリ</h3>
+                        <p>個人向け資産管理アプリケーション</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="branding">
+                    <img src="https://via.placeholder.com/600x400" alt="プロジェクト6">
+                    <div class="portfolio-overlay">
+                        <h3>スタートアップブランド</h3>
+                        <p>新規スタートアップのブランド構築</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // モバイルメニューの実装
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.createElement('div');
-            menuToggle.className = 'menu-toggle';
-            menuToggle.innerHTML = '☰';
-            menuToggle.style.display = 'none';
-            menuToggle.style.fontSize = '24px';
-            menuToggle.style.cursor = 'pointer';
-            document.querySelector('.header-container').appendChild(menuToggle);
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>お客様の声</h2>
+                <p>私たちと仕事をしたお客様からのフィードバック</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-item active">
+                    <p class="testimonial-text">「この会社とのコラボレーションは素晴らしい経験でした。私たちのウェブサイトは完全に変わり、オンラインでの存在感が大幅に向上しました。」</p>
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://via.placeholder.com/100x100" alt="クライアント">
+                        </div>
+                        <div class="client-name">
+                            <h4>株式会社ABC 代表取締役</h4>
+                            <p>田中 一郎</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">「マーケティング戦略の見直しを依頼しましたが、期待以上の結果が出ています。6ヶ月で売上は2倍になりました。」</p>
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://via.placeholder.com/100x100" alt="クライアント">
+                        </div>
+                        <div class="client-name">
+                            <h4>XYZカフェ オーナー</h4>
+                            <p>佐藤 由美</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">「アプリ開発のプロジェクトで協力しましたが、技術力の高さとコミュニケーションの取りやすさが印象的でした。」</p>
+                    <div class="client-info">
+                        <div class="client-image">
+                            <img src="https://via.placeholder.com/100x100" alt="クライアント">
+                        </div>
+                        <div class="client-name">
+                            <h4>テックスタートアップ CEO</h4>
+                            <p>鈴木 健</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            const nav = document.querySelector('nav ul');
-            
-            function toggleMenu() {
-                if (nav.style.display === 'flex') {
-                    nav.style.display = 'none';
-                } else {
-                    nav.style.display = 'flex';
-                    nav.style.flexDirection = 'column';
-                    nav.style.position = 'absolute';
-                    nav.style.top = '70px';
-                    nav.style.right = '5%';
-                    nav.style.background = '#fff';
-                    nav.style.padding = '20px';
-                    nav.style.borderRadius = '5px';
-                    nav.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-                }
-            }
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>価格表</h2>
+                <p>様々なニーズに対応した柔軟なプランをご用意しています</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>スタンダード</h3>
+                    <div class="price">¥99,000 <span>/月</span></div>
+                    <ul class="pricing-features">
+                        <li>5ページのウェブサイト</li>
+                        <li>基本的なSEO設定</li>
+                        <li>レスポンシブデザイン</li>
+                        <li>月1回のコンテンツ更新</li>
+                        <li>メールサポート</li>
+                    </ul>
+                    <a href="#contact" class="btn">お問い合わせ</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-tag">おすすめ</div>
+                    <h3>プロフェッショナル</h3>
+                    <div class="price">¥199,000 <span>/月</span></div>
+                    <ul class="pricing-features">
+                        <li>15ページのウェブサイト</li>
+                        <li>高度なSEO最適化</li>
+                        <li>カスタムデザイン</li>
+                        <li>週1回のコンテンツ更新</li>
+                        <li>24/7サポート</li>
+                        <li>ソーシャルメディア統合</li>
+                    </ul>
+                    <a href="#contact" class="btn">お問い合わせ</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>エンタープライズ</h3>
+                    <div class="price">¥399,000 <span>/月</span></div>
+                    <ul class="pricing-features">
+                        <li>無制限ページ</li>
+                        <li>完全カスタムソリューション</li>
+                        <li>専任アカウントマネージャー</li>
+                        <li>日々のコンテンツ更新</li>
+                        <li>優先サポート</li>
+                        <li>詳細な分析レポート</li>
+                        <li>マーケティングコンサルティング</li>
+                    </ul>
+                    <a href="#contact" class="btn">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            menuToggle.addEventListener('click', toggleMenu);
-
-            function checkScreenSize() {
-                if (window.innerWidth <= 768) {
-                    menuToggle.style.display = 'block';
-                   
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>お問い合わせ</h2>
+                <p>ご質問やご相談がございましたら、お気軽にお問い合わせください</p>
+            </div>
+            <div class="contact-container">
+                <
