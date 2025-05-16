@@ -4,744 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ビジネスサイトテンプレート</title>
-    <style>
-        /* リセットCSSと基本スタイル */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #7f8c8d;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        /* ヘッダー */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2c3e50;
-            text-decoration: none;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #3498db;
-        }
-        
-        /* ヒーローセクション */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .hero-text {
-            flex: 1;
-            padding-right: 50px;
-        }
-        
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .hero-text p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #7f8c8d;
-        }
-        
-        .hero-image {
-            flex: 1;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Aboutセクション */
-        .about {
-            background-color: #f8f9fa;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-image {
-            flex: 1;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            color: #7f8c8d;
-        }
-        
-        .skills {
-            margin-top: 30px;
-        }
-        
-        .skill-item {
-            margin-bottom: 20px;
-        }
-        
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .skill-bar {
-            height: 10px;
-            background-color: #ecf0f1;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background-color: #3498db;
-            border-radius: 5px;
-        }
-        
-        /* サービスセクション */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 50px;
-            color: #3498db;
-            margin-bottom: 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        /* チームセクション */
-        .team {
-            background-color: #f8f9fa;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .team-member {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .member-image {
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .team-member:hover .member-image img {
-            transform: scale(1.1);
-        }
-        
-        .member-info {
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .member-info h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: #2c3e50;
-        }
-        
-        .member-info p {
-            color: #7f8c8d;
-            margin-bottom: 15px;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: #3498db;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: #2980b9;
-        }
-        
-        /* ポートフォリオセクション */
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            background: none;
-            border: none;
-            padding: 8px 20px;
-            margin: 5px;
-            cursor: pointer;
-            color: #7f8c8d;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn.active, .filter-btn:hover {
-            color: #3498db;
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-        }
-        
-        .portfolio-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 250px;
-        }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(52, 152, 219, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-overlay h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        
-        /* テストモニアルセクション */
-        .testimonials {
-            background-color: #f8f9fa;
-        }
-        
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial-item {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            display: none;
-        }
-        
-        .testimonial-item.active {
-            display: block;
-        }
-        
-        .testimonial-text {
-            font-size: 18px;
-            font-style: italic;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-        }
-        
-        .client-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .client-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-        
-        .client-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .client-name h4 {
-            font-size: 18px;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .client-name p {
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-        
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #bdc3c7;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .slider-dot.active {
-            background-color: #3498db;
-        }
-        
-        /* 価格表セクション */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .pricing-card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .pricing-card.popular {
-            border: 2px solid #3498db;
-            position: relative;
-        }
-        
-        .popular-tag {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background-color: #3498db;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-size: 14px;
-        }
-        
-        .pricing-card h3 {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        
-        .price {
-            font-size: 40px;
-            font-weight: 700;
-            color: #3498db;
-            margin-bottom: 20px;
-        }
-        
-        .price span {
-            font-size: 16px;
-            font-weight: normal;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .pricing-features li {
-            padding: 10px 0;
-            color: #7f8c8d;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        
-        /* コンタクトセクション */
-        .contact {
-            background-color: #f8f9fa;
-        }
-        
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h3 {
-            font-size: 24px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        
-        .info-icon {
-            font-size: 20px;
-            color: #3498db;
-            margin-right: 15px;
-            margin-top: 5px;
-        }
-        
-        .info-content h4 {
-            font-size: 18px;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .info-content p {
-            color: #7f8c8d;
-        }
-        
-        .contact-form {
-            flex: 1;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* フッター */
-        footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-col h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 50px;
-            height: 2px;
-            background-color: #3498db;
-        }
-        
-        .footer-col p {
-            margin-bottom: 15px;
-            color: #bdc3c7;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #3498db;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .footer-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: #fff;
-            transition: all 0.3s;
-        }
-        
-        .footer-social a:hover {
-            background-color: #3498db;
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bdc3c7;
-        }
-        
-        /* レスポンシブデザイン */
-        @media (max-width: 992px) {
-            .about-content, .contact-container {
-                flex-direction: column;
-            }
-            
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 50px;
-            }
-            
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 50px;
-            }
-            
-            .hero-text h1 {
-                font-size: 36px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            
-            .menu-toggle {
-                display: block !important;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container header-container">
             <a href="#" class="logo">Company</a>
-            <nav>
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#home">ホーム</a></li>
                     <li><a href="#about">会社概要</a></li>
@@ -752,9 +22,26 @@
                     <li><a href="#contact">お問い合わせ</a></li>
                 </ul>
             </nav>
-            <div class="menu-toggle">☰</div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
     </header>
+
+    <!-- モバイルナビゲーション -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#about">会社概要</a></li>
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#team">チーム</a></li>
+            <li><a href="#portfolio">ポートフォリオ</a></li>
+            <li><a href="#pricing">価格表</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+    </div>
 
     <section id="home" class="hero">
         <div class="container hero-content">
@@ -825,32 +112,32 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>ビジネスコンサルティング</h3>
                     <p>経験豊富なコンサルタントが、ビジネスの課題解決と成長戦略をサポートします。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💻</div>
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
                     <h3>Web開発</h3>
                     <p>最新の技術を使ったレスポンシブで高性能なウェブサイトを開発します。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📈</div>
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
                     <h3>デジタルマーケティング</h3>
                     <p>効果的なオンラインマーケティング戦略で、顧客獲得をサポートします。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>モバイルアプリ開発</h3>
                     <p>iOSとAndroidのネイティブアプリを開発し、モバイルユーザーにリーチします。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔍</div>
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>SEO最適化</h3>
                     <p>検索エンジンでの可視性を高め、オーガニックトラフィックを増加させます。</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📢</div>
+                    <div class="service-icon"><i class="fas fa-comments"></i></div>
                     <h3>ソーシャルメディア戦略</h3>
                     <p>ソーシャルメディアを活用したブランド構築と顧客エンゲージメントを強化します。</p>
                 </div>
@@ -873,9 +160,9 @@
                         <h3>山田 太郎</h3>
                         <p>CEO / 創業者</p>
                         <div class="social-links">
-                            <a href="#">📱</a>
-                            <a href="#">💻</a>
-                            <a href="#">📧</a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -887,9 +174,9 @@
                         <h3>佐藤 花子</h3>
                         <p>マーケティングディレクター</p>
                         <div class="social-links">
-                            <a href="#">📱</a>
-                            <a href="#">💻</a>
-                            <a href="#">📧</a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -901,9 +188,9 @@
                         <h3>鈴木 健太</h3>
                         <p>リードデベロッパー</p>
                         <div class="social-links">
-                            <a href="#">📱</a>
-                            <a href="#">💻</a>
-                            <a href="#">📧</a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -915,9 +202,9 @@
                         <h3>田中 美咲</h3>
                         <p>デザインディレクター</p>
                         <div class="social-links">
-                            <a href="#">📱</a>
-                            <a href="#">💻</a>
-                            <a href="#">📧</a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1094,4 +381,9 @@
                 <p>ご質問やご相談がございましたら、お気軽にお問い合わせください</p>
             </div>
             <div class="contact-container">
-                <
+                <div class="contact-info">
+                    <h3>お問い合わせ先</h3>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <h4>所
